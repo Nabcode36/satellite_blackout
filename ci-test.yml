@@ -1,0 +1,19 @@
+image: sneakypatriki/cs2511-gradle:latest
+
+stages:
+  - lint
+  - tests
+
+lint:
+  stage: lint
+  needs: []
+  script:
+    - gradle checkstyleMain
+    - gradle checkstyleTest
+  allow_failure: true
+
+test:
+  stage: tests
+  needs: []
+  script:
+    - gradle test
